@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Order>
+
+<div class="display-4">Order Details</div>
+<hr />
+
+    <div class="col-md-8 row">
+        <label class="col-form-label col-md-3">Enter the Year</label>
+        <div class="col-md-7">
+            <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <input type="submit" class="btn btn-success" value="Search" />
+        </div>
+    </div>
+<hr />
+<div class="row">
+    <div class="col-md-7">
+        <table class="table table-hover">
+            <tr>
+                <th>Order Id</th>
+                <th>Customer Id</th>
+                <th>Order Date</th>
+                <th>Freight</th>
+                <th>City</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.OrderId</td>
+                    <td>@item.CustomerId</td>
+                    <td>@item.OrderDate</td>
+                    <td>@item.Freight</td>
+                    <td>@item.ShipCity</td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
