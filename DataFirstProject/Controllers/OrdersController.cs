@@ -12,10 +12,21 @@ namespace DataFirstProject.Controllers
             _orderRepository = orderRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? year = null)
         {
+            if (year.HasValue)
+            {
+               var orderByYear = _orderRepository.GetOrdersByDate(year.Value);
+                return View(orderByYear);
+            }
             var orders = _orderRepository.GetOrders();
             return View(orders);
+        }
+
+        public IActionResult CustomerWithOrderByDate(int? year = null)
+        {
+           var vm = _orderRepository.GetCustomerOrdersByDate(1997);
+            return View("CustomerOrders",vm);
         }
     }
 }

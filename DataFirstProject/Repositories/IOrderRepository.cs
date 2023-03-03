@@ -1,4 +1,5 @@
 ﻿using DataFirstProject.Models;
+using DataFirstProject.ViewModels;
 
 namespace DataFirstProject.Repositories
 {
@@ -8,5 +9,6 @@ namespace DataFirstProject.Repositories
 
         IEnumerable<Order> GetOrdersByDate(int year);
 
+        CustomerWithOrdersViewModel GetCustomerOrdersByDate(int year);
     }
 }
