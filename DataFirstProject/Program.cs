@@ -1,4 +1,5 @@
 using DataFirstProject.Models;
+using DataFirstProject.Models.BikeStores;
 using DataFirstProject.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,7 @@ builder.Services.AddControllersWithViews();
 
 //Resolve ApplicationDbContext
 builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<BikeStoresContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("BikeStoresConnection")));
 
 //Resolve IOrderRepository
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
