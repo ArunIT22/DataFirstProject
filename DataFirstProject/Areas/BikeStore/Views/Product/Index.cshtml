@@ -36,15 +36,16 @@
                     </table>
                 </div>
                 <div class="col-md-4">
-                    <ul class="nav nav-tabs" id="myTab">
-                        <li class="nav-item">
-                            <a href="#addBrand" class="nav-link active" data-bs-toggle="tab">Add Brand</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#addCategory" class="nav-link" data-bs-toggle="tab">Add Category</a>
-                        </li>
-                    </ul>
                     <form method="post">
+                        <ul class="nav nav-tabs" id="myTab">
+                            <li class="nav-item">
+                                <a href="#addBrand" class="nav-link active" data-bs-toggle="tab">Add Brand</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#addCategory" class="nav-link" data-bs-toggle="tab">Add Category</a>
+                            </li>
+                        </ul>
+
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="addBrand">
                                 <h4 class="mt-2">Add Brand</h4>
@@ -52,16 +53,16 @@
                                     <label class="form-label">Brand Name</label>
                                     <input type="text" class="form-control" name="BrandName" />
                                     <input type="submit" class="btn btn-outline-primary" value="Add New"
-                                    asp-area="BikeStore" asp-controller="Product" asp-action="AddBrand" />
+                                           asp-area="BikeStore" asp-controller="Product" asp-action="AddBrand" />
                                 </div>
                             </div>
-                            <div class="tab-pane fade show active" id="addCategory">
+                            <div class="tab-pane fade" id="addCategory">
                                 <h4 class="mt-2">Add Category</h4>
-                                 <div class="mb-3">
+                                <div class="mb-3">
                                     <label class="form-label">Category Name</label>
                                     <input type="text" class="form-control" name="CategoryName" />
                                     <input type="submit" class="btn btn-outline-primary" value="Add New"
-                                    asp-area="BikeStore" asp-controller="Product" asp-action="AddCategory" />
+                                           asp-area="BikeStore" asp-controller="Product" asp-action="AddCategory" />
                                 </div>
                             </div>
                         </div>
