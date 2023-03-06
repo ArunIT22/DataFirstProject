@@ -1,0 +1,23 @@
+﻿@model IEnumerable<DataFirstProject.Areas.BikeStore.Models.Product>
+
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-hover">
+            <tr>                
+                <th>Product Name</th>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Brand.BrandName</td>
+                    <td>@item.Category.CategoryName</td>
+                    <td>@item.ListPrice</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

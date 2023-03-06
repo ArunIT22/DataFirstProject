@@ -1,3 +1,4 @@
+using DataFirstProject.Areas.BikeStore.Models;
 using DataFirstProject.Models;
 using DataFirstProject.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -10,12 +11,14 @@ builder.Services.AddControllersWithViews();
 //Resolve ApplicationDbContext
 builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddDbContext<BikeStoresContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("BikeStoresConnection")));
+
 //Resolve IOrderRepository
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<DataFirstProject.Areas.BikeStore.Repositories.IProductRepository, DataFirstProject.Areas.BikeStore.Repositories.ProductRepository>();
 
 var app = builder.Build();
 
@@ -33,6 +36,18 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+////Conventional Routing
+//app.MapAreaControllerRoute(
+//    name: "MyBikeStore",
+//    areaName: "BikeStore",
+//    pattern: "BikeStore/{controller=Home}/{action=Index}/{id?}"
+//    );
+
+//app.MapControllerRoute(
+//    name: "areaRoute",
+//    pattern: "{area:exists}/{controller}/{action}/{id?}"
+//    );
 
 app.MapControllerRoute(
     name: "default",
