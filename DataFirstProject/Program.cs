@@ -13,6 +13,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServe
 //Resolve IOrderRepository
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
