@@ -1,4 +1,5 @@
 ﻿using DataFirstProject.Models;
+using DataFirstProject.ViewModels;
 
 namespace DataFirstProject.Repositories
 {
@@ -7,5 +8,7 @@ namespace DataFirstProject.Repositories
         List<Product> GetProducts();
 
         List<Product> GetProductsByPrice(decimal price);
+
+        (List<ProductViewModel> prd, List<OrderViewModel> ord) GetData();
     }
 }

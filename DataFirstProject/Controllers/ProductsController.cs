@@ -1,4 +1,5 @@
 ﻿using DataFirstProject.Repositories;
+using DataFirstProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DataFirstProject.Controllers
@@ -22,8 +23,19 @@ namespace DataFirstProject.Controllers
             else
             {
                 var products = _repository.GetProductsByPrice(price);
-                return View(products);  
+                return View(products);
             }
+        }
+
+        public IActionResult MultipleTables()
+        {
+            var (products, orders) = _repository.GetData();
+            TwoTables vm = new()
+            {
+                Products = products,
+                Orders = orders
+            };
+            return View(vm);
         }
     }
 }

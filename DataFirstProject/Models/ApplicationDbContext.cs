@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using DataFirstProject.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -21,9 +23,25 @@ namespace DataFirstProject.Models
         public virtual DbSet<Order> Orders { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
 
+       //// [NotMapped]
+       // public virtual DbSet<ProductViewModel> ProductViewModel { get; set; }
+
+       // //[NotMapped]
+       // public virtual DbSet<OrderViewModel> OrderViewModel { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLazyLoadingProxies();
+
+            //if (!optionsBuilder.IsConfigured)
+            //{
+            //    IConfigurationRoot configuration = new ConfigurationBuilder()
+            //       .SetBasePath(Directory.GetCurrentDirectory())
+            //       .AddJsonFile("appsettings.json")
+            //       .Build();
+            //    var connectionString = configuration.GetConnectionString("DefaultConnection");
+            //    optionsBuilder.UseSqlServer(connectionString);
+            //}
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
